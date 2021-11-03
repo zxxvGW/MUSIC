@@ -1,12 +1,21 @@
-import Discover from '../pages/discover'
-import Mine from '../pages/mine'
-import Friends from '../pages/friends'
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+
+import Discover from '@/pages/discover';
+import Mine from '@/pages/mine';
+import Friends from '@/pages/friends';
 
 
 const routes = [
   {
     path: '/',
     exact: true,
+    render: () => {
+      <Redirect to='/discover' />
+    }
+  },
+  {
+    path: '/discover',
     component: Discover,
   },
   {
