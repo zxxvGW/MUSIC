@@ -3,7 +3,6 @@ import { NavLink, } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 
 import { discoverMenu } from '@/common/local-data';
-// import request from '@/services/request';
 
 import {
   DiscoverWrapper,
