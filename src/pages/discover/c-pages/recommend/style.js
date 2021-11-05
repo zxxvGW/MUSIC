@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RecommendWarpper = styled.div`
-  display: flex;
+export const RecommendWrapper = styled.div`
+  /* display: flex; */
 
 `

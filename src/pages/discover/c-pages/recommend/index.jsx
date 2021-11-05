@@ -1,13 +1,13 @@
 import React, { memo, } from 'react';
 import TopBanner from './c-cpns/top-banner';
 
-import { RecommendWarpper } from './style.js';
+import { RecommendWrapper } from './style.js';
 
 function Recommend(props) {
   return (
-    <RecommendWarpper>
+    <RecommendWrapper>
       <TopBanner />
-    </RecommendWarpper>
+    </RecommendWrapper>
   )
 }
 export default memo(Recommend)

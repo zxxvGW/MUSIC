@@ -26,9 +26,8 @@ export default memo(function Discover(props) {
             })
           }
         </TopMenu>
-        {renderRoutes(route.routes)}
       </div>
-
+      {renderRoutes(route.routes)}
     </DiscoverWrapper>
   )
 })
