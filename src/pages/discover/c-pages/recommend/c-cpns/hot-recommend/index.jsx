@@ -1,8 +1,10 @@
 import React, { memo, useEffect } from 'react';
-import ThemeHeaderRCM from '@/components//theme-header-rcm';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 // 请求limit常量
 import { HOT_RECOMMEND_LIMIT } from '@/common/contants';
+
+import ThemeHeaderRCM from '@/components/theme-header-rcm';
+import SongsCover from '@/components/songs-cover';
 
 import {
   HotRecommendWrapper,
@@ -31,11 +33,11 @@ export default memo(function HotRecommend() {
         {
           hotRecommends.map((item, index) => {
             return (
-              <div className="" key={item.name}>{item.name}</div>
+              <SongsCover key={item.id} info={item} />
             )
           })
         }
       </div>
-    </HotRecommendWrapper>
+    </HotRecommendWrapper >
   )
 })

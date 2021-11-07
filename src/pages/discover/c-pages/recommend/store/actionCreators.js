@@ -3,6 +3,7 @@ import * as actionTypes from './constants';
 import {
   getTopBanners,
   getHotRecommends,
+  getNewAlbums,
 } from '@/services/recommend';
 
 const changeTopBannerAtion = (res) => ({
@@ -14,6 +15,10 @@ const changeTopBannerAtion = (res) => ({
 const changeHotRecommendAction = (res) => ({
   type: actionTypes.CHANGE_HOT_RECOMMENDS,
   hotRecommends: res.result,
+})
+const changeNewAlbumAction = (res) => ({
+  type: actionTypes.CHANGE_NEW_ALBUMS,
+  newAlbums: res.albums,
 })
 
 export const getTopBannerAction = () => {
@@ -29,6 +34,14 @@ export const getHotRecoomendsAction = (limit) => {
     getHotRecommends(limit).then(res => {
       // console.log(res)
       dispatch(changeHotRecommendAction(res))
+    })
+  }
+}
+export const getNwAlbumAction = (limit) => {
+  return dispatch => {
+    getNewAlbums(limit).then(res => {
+      // console.log(res)
+      dispatch(changeNewAlbumAction(res))
     })
   }
 }
