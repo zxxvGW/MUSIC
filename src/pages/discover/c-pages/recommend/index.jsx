@@ -4,6 +4,9 @@ import TopBanner from './c-cpns/top-banner';
 import HotRecommend from './c-cpns/hot-recommend';
 import NewAlbum from './c-cpns/new-album';
 import RCMRanking from './c-cpns/rcm-ranking';
+import UserLogin from './c-cpns/user-login';
+import SettleSinger from './c-cpns/settle-singer';
+import HotAnchor from './c-cpns/hot-anchor'
 
 import {
   RecommendWrapper,
@@ -11,6 +14,8 @@ import {
   RecommendLeft,
   RecommendRight,
 } from './style.js';
+
+
 
 
 function Recommend(props) {
@@ -25,7 +30,11 @@ function Recommend(props) {
           <RCMRanking />
         </RecommendLeft>
         {/* recommend 右边区域 */}
-        <RecommendRight></RecommendRight>
+        <RecommendRight>
+          <UserLogin />
+          <SettleSinger />
+          <HotAnchor />
+        </RecommendRight>
       </Content>
     </RecommendWrapper >
   )

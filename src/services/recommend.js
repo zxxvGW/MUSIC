@@ -14,7 +14,6 @@ export function getHotRecommends(limit) {
   })
 }
 
-
 export function getNewAlbums(limit) {
   return request({
     url: '/top/album',
@@ -23,6 +22,7 @@ export function getNewAlbums(limit) {
     }
   })
 }
+
 export function getTopList(idx) {
   return request({
     url: "/top/list",
