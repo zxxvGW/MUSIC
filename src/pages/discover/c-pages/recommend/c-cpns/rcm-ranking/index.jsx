@@ -5,7 +5,7 @@ import { RankingWrapper } from './style';
 import ThemeHeaderRCM from '@/components/theme-header-rcm';
 
 import { getTopListAction } from '../../store/actionCreators';
-import TopRanking from '../../../../../../components/top-ranking';
+import TopRanking from '@/components/top-ranking';
 
 export default memo(function RCMRanking() {
 

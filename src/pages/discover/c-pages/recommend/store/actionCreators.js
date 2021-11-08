@@ -67,7 +67,6 @@ export const getTopListAction = (idx) => {
     getTopList(idx).then(res => {
       switch (idx) {
         case 0:
-          console.log(res)
           dispatch(changeUpRankingAction(res));
           break;
         case 2:
