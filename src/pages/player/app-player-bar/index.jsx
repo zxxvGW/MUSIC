@@ -19,6 +19,7 @@ export default memo(function AppPlayerBar() {
   const [currentTime, setCurrentTime] = useState(0)
   const [progress, setProgress] = useState(0);
   const [isChanging, setIsChanging] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const { currentSong } = useSelector(state => ({
     currentSong: state.getIn(['player', 'currentSong'])
@@ -30,6 +31,9 @@ export default memo(function AppPlayerBar() {
   useEffect(() => {
     dispatch(getSongDetailAction(167876))
   }, [dispatch])
+  useEffect(() => {
+    audioRef.current.src = getPlaySong(currentSong.id);
+  }, [currentSong])
 
   // other handle
   const picUrl = (currentSong.al && currentSong.al.picUrl) || "";
@@ -39,10 +43,11 @@ export default memo(function AppPlayerBar() {
   const showCurrentTime = formatDate(currentTime, "mm:ss");
 
   // handle function
-  function playMusic() {
-    audioRef.current.src = getPlaySong(currentSong.id);
-    audioRef.current.play();
-  }
+  const playMusic = useCallback(() => {
+    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
+
 
   const timeUapdate = (e) => {
     const currentTime = e.target.currentTime;
@@ -65,12 +70,16 @@ export default memo(function AppPlayerBar() {
     audioRef.current.currentTime = currentTime;
     setCurrentTime(currentTime * 1000);
     setIsChanging(false);
-  }, [duration])
+
+    if (!isPlaying) {
+      playMusic()
+    }
+  }, [duration, isPlaying, playMusic])
 
   return (
     <PlaybarWrapper className="sprite_player">
       <div className="content wrap-v2">
-        <Control>
+        <Control isPlaying={isPlaying}>
           <button className="sprite_player prev"></button>
           <button className="sprite_player play" onClick={e => playMusic()}></button>
           <button className="sprite_player next"></button>
