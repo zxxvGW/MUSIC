@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Discover from '@/pages/discover';
 import Mine from '@/pages/mine';
 import Friends from '@/pages/friends';
+import Player from '@/pages/player'
 // discover 子页面
 import Recommend from "../pages/discover/c-pages/recommend";
 import Ranking from "../pages/discover/c-pages/ranking";
@@ -12,13 +13,14 @@ import Djradio from "../pages/discover/c-pages/djradio";
 import Artist from "../pages/discover/c-pages/artist";
 import Album from "../pages/discover/c-pages/album";
 
+
 const routes = [
   {
-    path: '/',
+    path: "/",
     exact: true,
-    render: () => {
-      <Redirect to='/discover' />
-    }
+    render: () => (
+      <Redirect to="/discover" />
+    )
   },
   {
     path: '/discover',
@@ -56,10 +58,10 @@ const routes = [
         path: "/discover/album",
         component: Album
       },
-      // {
-      //   path: "/discover/player",
-      //   component: Player
-      // }
+      {
+        path: "/discover/player",
+        component: Player
+      }
     ]
   },
   {
